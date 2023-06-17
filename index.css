@@ -57,9 +57,14 @@ h1 {
     margin-bottom: 0em;
 }
 
+#titleCard {
+  margin-top: 50vh;
+}
+
 /* Title card */
 .container {
-  transform: translateY(200vh);
+  /*transform: translateY(200vh);*/
+  margin-top: 80vh;
   position: relative;
   width: 300px;
   height: 400px;

@@ -31,9 +31,9 @@ $(window).bind('mousewheel', function(event) {
                 setTimeout(() => {
                     titleTopLine.style.setProperty("--scrollbar-left", (i/10) + "px");
                     titleTopLine.style.setProperty("--scrollbar-right", (i/10) + "px");
-                },1 );  
+                }, 1);  
             }    
-            titleCard.style.setProperty("transform", "translateY(15vh)");
+            //titleCard.style.setProperty("transform", "translateY(15vh)");
 
             titleH1.style.setProperty("font-size", "30px");
             scrolledDownCompletely = true;
