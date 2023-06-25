@@ -2,418 +2,202 @@ body {
     background-color: rgb(31, 30, 46);
     margin: 0 ;
     padding: 0;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     overflow-y: scroll;
     overflow-x: hidden;
 }
 
-/* Main title */
-h1 {
-  position: relative;
-  padding: 0;
-  margin: 0;
-  font-family: "Raleway", sans-serif;
-  font-weight: 300;
-  font-size: 40px;
-  color: white;
-  -webkit-transition: all 0.4s ease 0s;
-  -o-transition: all 0.4s ease 0s;
-  transition: all 0.4s ease 0s;
+@import url("https://fonts.googleapis.com/css?family=Raleway:900&display=swap");
+
+body {
+    margin: 0px;
 }
-#title {
-  margin-top: 25em;
-}
-#title h1 {
-  font-size:100px;
-  font-weight:700;  
-  letter-spacing:1px; 
-  text-transform:uppercase; 
-  width:700px; 
-  text-align:center; 
-  margin:auto; 
-  white-space:nowrap; 
-  padding-bottom:13px;
-  padding-top: 13px;  
-  font-family: 'Roboto Condensed', sans-serif;
-  position: sticky;
-}
-#title h1:before {
-    background-color: #c50000;
-    content: '';
-    display: block;
-    position: absolute; left: var(--scrollbar-left);
+
+#container {
+    margin: auto;
+    height: 80pt;
     top: 0;
-    height: 3px;
-    width: 250px;
-}
-#title h1:after {
-    background-color: #c50000;
-    content: '';
-    display: block;
-    position:absolute; right: var(--scrollbar-right); bottom:0;
-    height: 3px;
-    width: 250px;
-    margin-bottom: 0em;
+    bottom: 0;
+
+    filter: url(#threshold) blur(0.6px);
 }
 
-#titleCard {
-  margin-top: 50vh;
+#text1,
+#text2 {
+    width: 100%;
+    position: absolute;
+    margin-left: -200px; 
+    display: inline-block;
+    color: white;
+
+    font-family: "Raleway", sans-serif;
+    font-size: 80pt;
+
+    text-align: center;
+
+    user-select: none;
 }
 
-/* Title card */
-.container {
-  /*transform: translateY(200vh);*/
-  margin-top: 80vh;
-  position: relative;
-  width: 300px;
-  height: 400px;
-  transition: 500ms ease-in;
-  margin-left: 20vw;
+@import url("https://fonts.googleapis.com/css?family=Signika+Negative:300,400&display=swap");
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  letter-spacing: 0.04em;
 }
 
-.container:active {
-  width: 180px;
-  height: 245px;
-}
-
-#card {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
+.section {
+  height: 100vh;
+  width: 100%;
+  padding: 50px;
+  text-align: center;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 20px;
-  transition: 700ms;
-  background: linear-gradient(43deg, rgb(65, 88, 208) 0%, rgb(200, 80, 192) 46%, rgb(255, 204, 112) 100%);
+}
+.bg1 {
+  background-color: #ccc;
+}
+.bg2 {
+  background-color: #333;
+  color: white  ;
+}
+.bg3 {
+  background-color: #ccc;
+}
+h1 {
+  font-size: 40px;
+  line-height: 1.2;
+  margin: 0;
+}
+.revealUp {
+  opacity: 0;
+  visibility: hidden;
+}
+.spacer {
+  height: 50vh;
+  background-color: #000;
+} 
+
+
+.gallery .heading {
+  font-size: 8rem;
+  margin: 7rem 3rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 300;
+  color: black;
+  display: inline-block;
+  position: relative;
+  z-index: 3;
 }
 
-.subtitle {
-  transform: translateY(160px);
-  color: rgb(134, 110, 221);
+.gallery .heading::after {
+  content: "";
+  width: 80%;
+  height: 80%;
+  position: absolute;
+  top: 22%;
+  left: 12%;
+  z-index: -20;
+}
+
+#galleryDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#galleryDiv a {
+  border-radius: 5px;
+  background-color: rgb(48, 48, 48);
+  padding: 10px;
+  width: 100px;
   text-align: center;
-  padding: 50px;
-  width: 100%;
+  color: white;
+  text-decoration: none;
 }
 
-.title {
-  opacity: 0;
-  transition-duration: 300ms;
-  transition-timing-function: ease-in-out-out;
-  transition-delay: 100ms;
-  position: absolute;
-  font-size: x-large;
-  font-weight: bold;
+@keyframes move {
+  from {
+    transform: rotate(45deg) translate(-120px, 560px);
+  }
+  to {
+    transform: rotate(45deg) translate(-120px, -60px);
+  }
 }
-
-.tracker:hover ~ #card .title {
-  opacity: 1;
-}
-
-#prompt {
-  bottom: 8px;
-  left: 12px;
-  z-index: 20;
-  font-size: 20px;
-  font-weight: bold;
-  transition: 300ms ease-in-out-out;
-  position: absolute;
-  max-width: 110px;
-  color: rgb(255, 255, 255);
-}
-
-.tracker {
-  position: absolute;
-  z-index: 200;
-  width: 100%;
-  height: 100%;
-}
-
-.tracker:hover {
-  cursor: pointer;
-}
-
-.tracker:hover ~ #card #prompt {
-  opacity: 0;
-}
-
-.tracker:hover ~ #card {
-  transition: 300ms;
-  filter: brightness(1.1);
-}
-
-.container:hover #card::before {
-  transition: 200ms;
-  content: '';
-  opacity: 80%;
-}
-
-.canvas {
-  perspective: 800px;
-  inset: 0;
-  z-index: 200;
-  position: absolute;
+.gallery .container {
+  margin: 0px;
+  position: relative;
+  right: 0px;
+  top: 0px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  gap: 0px 0px;
-  grid-template-areas: "tr-1 tr-2 tr-3 tr-4 tr-5"
-    "tr-6 tr-7 tr-8 tr-9 tr-10"
-    "tr-11 tr-12 tr-13 tr-14 tr-15"
-    "tr-16 tr-17 tr-18 tr-19 tr-20"
-    "tr-21 tr-22 tr-23 tr-24 tr-25";
+  margin-left: 30%;
+  margin-right: -30%;
+  grid-template-columns: auto auto auto;
+  gap: 1rem;
+  animation: move 4.5s linear infinite alternate;
 }
 
-#card::before {
-  content: '';
-  background: linear-gradient(43deg, rgb(65, 88, 208) 0%, rgb(200, 80, 192) 46%, rgb(255, 204, 112) 100%);
-  filter: blur(2rem);
-  opacity: 30%;
+.container .child-container {
+  width: 150px;
+  height: 150px;
+  border-radius: 5px;
+  background-color: #b9b9b9;
+  text-align: center;
+  overflow: hidden;
+}
+
+.child-container img {
   width: 100%;
   height: 100%;
-  position: absolute;
-  z-index: -1;
-  transition: 200ms;
+  border-radius: inherit;
 }
 
-.tr-1 {
-  grid-area: tr-1;
+@media screen and (max-width: 1000px) {
+  .gallery .heading {
+    margin: 9rem 3rem;
+    font-size: 6rem;
+  }
 }
 
-.tr-2 {
-  grid-area: tr-2;
+@media screen and (max-width: 780px) {
+  .gallery .heading {
+    font-size: 4rem;
+    margin: 12rem 2rem;
+  }
+  @keyframes move {
+    from {
+      transform: rotate(45deg) translate(20px, 80px);
+    }
+    to {
+      transform: rotate(45deg) translate(20px, 20px);
+    }
+  }
+
+  .gallery .container {
+    gap: 0.5rem;
+  }
+  .container .child-container {
+    width: 100px;
+    height: 100px;
+    border-radius: 4px;
+  }
 }
 
-.tr-3 {
-  grid-area: tr-3;
-}
+@media screen and (max-width: 500px) {
+  .gallery .heading {
+    margin: 8rem 2rem;
+  }
 
-.tr-4 {
-  grid-area: tr-4;
+  @keyframes move {
+    from {
+      transform: rotate(45deg) translate(150px, 80px);
+    }
+    to {
+      transform: rotate(45deg) translate(150px, 20px);
+    }
+  }
 }
-
-.tr-5 {
-  grid-area: tr-5;
-}
-
-.tr-6 {
-  grid-area: tr-6;
-}
-
-.tr-7 {
-  grid-area: tr-7;
-}
-
-.tr-8 {
-  grid-area: tr-8;
-}
-
-.tr-9 {
-  grid-area: tr-9;
-}
-
-.tr-10 {
-  grid-area: tr-10;
-}
-
-.tr-11 {
-  grid-area: tr-11;
-}
-
-.tr-12 {
-  grid-area: tr-12;
-}
-
-.tr-13 {
-  grid-area: tr-13;
-}
-
-.tr-14 {
-  grid-area: tr-14;
-}
-
-.tr-15 {
-  grid-area: tr-15;
-}
-
-.tr-16 {
-  grid-area: tr-16;
-}
-
-.tr-17 {
-  grid-area: tr-17;
-}
-
-.tr-18 {
-  grid-area: tr-18;
-}
-
-.tr-19 {
-  grid-area: tr-19;
-}
-
-.tr-20 {
-  grid-area: tr-20;
-}
-
-.tr-21 {
-  grid-area: tr-21;
-}
-
-.tr-22 {
-  grid-area: tr-22;
-}
-
-.tr-23 {
-  grid-area: tr-23;
-}
-
-.tr-24 {
-  grid-area: tr-24;
-}
-
-.tr-25 {
-  grid-area: tr-25;
-}
-
-.tr-1:hover ~ #card {
-  transition: 125ms linear;
-  transform: rotateX(20deg) rotateY(-10deg) rotateZ(0deg);
-}
-
-.tr-2:hover ~ #card {
-  transition: 125ms linear;
-  transform: rotateX(20deg) rotateY(-5deg) rotateZ(0deg);
-}
-
-.tr-3:hover ~ #card {
-  transition: 125ms linear;
-  transform: rotateX(20deg) rotateY(0deg) rotateZ(0deg);
-}
-
-.tr-4:hover ~ #card {
-  transition: 125ms linear;
-  transform: rotateX(20deg) rotateY(5deg) rotateZ(0deg);
-}
-
-.tr-5:hover ~ #card {
-  transition: 125ms linear;
-  transform: rotateX(20deg) rotateY(10deg) rotateZ(0deg);
-}
-
-.tr-6:hover ~ #card {
-  transition: 125ms linear;
-  transform: rotateX(10deg) rotateY(-10deg) rotateZ(0deg);
-}
-
-.tr-7:hover ~ #card {
-  transition: 125ms linear;
-  transform: rotateX(10deg) rotateY(-5deg) rotateZ(0deg);
-}
-
-.tr-8:hover ~ #card {
-  transition: 125ms linear;
-  transform: rotateX(10deg) rotateY(0deg) rotateZ(0deg);
-}
-
-.tr-9:hover ~ #card {
-  transition: 125ms linear;
-  transform: rotateX(10deg) rotateY(5deg) rotateZ(0deg);
-}
-
-.tr-10:hover ~ #card {
-  transition: 125ms linear;
-  transform: rotateX(10deg) rotateY(10deg) rotateZ(0deg);
-}
-
-.tr-11:hover ~ #card {
-  transition: 125ms linear;
-  transform: rotateX(0deg) rotateY(-10deg) rotateZ(0deg);
-}
-
-.tr-12:hover ~ #card {
-  transition: 125ms linear;
-  transform: rotateX(0deg) rotateY(-5deg) rotateZ(0deg);
-}
-
-.tr-13:hover ~ #card {
-  transition: 125ms linear;
-  transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-}
-
-.tr-14:hover ~ #card {
-  transition: 125ms linear;
-  transform: rotateX(0deg) rotateY(5deg) rotateZ(0deg);
-}
-
-.tr-15:hover ~ #card {
-  transition: 125ms linear;
-  transform: rotateX(0deg) rotateY(10deg) rotateZ(0deg);
-}
-
-.tr-16:hover ~ #card {
-  transition: 125ms linear;
-  transform: rotateX(-10deg) rotateY(-10deg) rotateZ(0deg);
-}
-
-.tr-17:hover ~ #card {
-  transition: 125ms linear;
-  transform: rotateX(-10deg) rotateY(-5deg) rotateZ(0deg);
-}
-
-.tr-18:hover ~ #card {
-  transition: 125ms linear;
-  transform: rotateX(-10deg) rotateY(0deg) rotateZ(0deg);
-}
-
-.tr-19:hover ~ #card {
-  transition: 125ms linear;
-  transform: rotateX(-10deg) rotateY(5deg) rotateZ(0deg);
-}
-
-.tr-20:hover ~ #card {
-  transition: 125ms linear;
-  transform: rotateX(-10deg) rotateY(10deg) rotateZ(0deg);
-}
-
-.tr-21:hover ~ #card {
-  transition: 125ms linear;
-  transform: rotateX(-20deg) rotateY(-10deg) rotateZ(0deg);
-}
-
-.tr-22:hover ~ #card {
-  transition: 125ms linear;
-  transform: rotateX(-20deg) rotateY(-5deg) rotateZ(0deg);
-}
-
-.tr-23:hover ~ #card {
-  transition: 125ms linear;
-  transform: rotateX(-20deg) rotateY(0deg) rotateZ(0deg);
-}
-
-.tr-24:hover ~ #card {
-  transition: 125ms linear;
-  transform: rotateX(-20deg) rotateY(5deg) rotateZ(0deg);
-}
-
-.tr-25:hover ~ #card {
-  transition: 125ms linear;
-  transform: rotateX(-20deg) rotateY(10deg) rotateZ(0deg);
-}
-
-.noselect {
-  -webkit-touch-callout: none;
-   /* iOS Safari */
-  -webkit-user-select: none;
-   /* Safari */
-   /* Konqueror HTML */
-  -moz-user-select: none;
-   /* Old versions of Firefox */
-  -ms-user-select: none;
-   /* Internet Explorer/Edge */
-  user-select: none;
-   /* Non-prefixed version, currently
-									supported by Chrome, Edge, Opera and Firefox */
-}
-

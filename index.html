@@ -9,47 +9,123 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital@1&display=swap" rel="stylesheet">
     </head>
     <body>
-      <div id="title">
-        <h1 id="titleH1">GND Szeged</h1>
+      <div class="section">
+        <div id="container">
+          <span id="text1"></span>
+          <span id="text2"></span>
+        </div>
       </div>
-      <h1 id="titleCard">Fejlesztés alatt...</h1>
-      <!-- TODO: Title Card Implementation and CSS-->
-      <!-- 
-      <div class="container noselect" id="titleCard">
-        <div class="canvas">
-          <div class="tracker tr-1"></div>
-          <div class="tracker tr-2"></div>
-          <div class="tracker tr-3"></div>
-          <div class="tracker tr-4"></div>
-          <div class="tracker tr-5"></div>
-          <div class="tracker tr-6"></div>
-          <div class="tracker tr-7"></div>
-          <div class="tracker tr-8"></div>
-          <div class="tracker tr-9"></div>
-          <div class="tracker tr-10"></div>
-          <div class="tracker tr-11"></div>
-          <div class="tracker tr-12"></div>
-          <div class="tracker tr-13"></div>
-          <div class="tracker tr-14"></div>
-          <div class="tracker tr-15"></div>
-          <div class="tracker tr-16"></div>
-          <div class="tracker tr-17"></div>
-          <div class="tracker tr-18"></div>
-          <div class="tracker tr-19"></div>
-          <div class="tracker tr-20"></div>
-          <div class="tracker tr-21"></div>
-          <div class="tracker tr-22"></div>
-          <div class="tracker tr-23"></div>
-          <div class="tracker tr-24"></div>
-          <div class="tracker tr-25"></div>
-          <div id="card">
-          <p id="prompt">Lorem ipsum</p>
-          <div class="title">Ide majd jon szoveg, de addig is random szarsag lesz itt</div>
+      
+      <svg id="filters">
+          <defs>
+              <filter id="threshold">
+                  <feColorMatrix in="SourceGraphic" type="matrix" values=
+                       "1 0 0 0 0
+                        0 1 0 0 0
+                        0 0 1 0 0
+                        0 0 0 255 -140" 
+                  />
+              </filter>
+          </defs>
+      </svg>
+
+      <div class="section bg1">
+        <h1 class="revealUp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vehicula, enim vitae iaculis pulvinar, quam elit ultricies sem, sit amet euismod nulla quam sit amet velit. Mauris non urna condimentum nulla eleifend rutrum. Mauris sollicitudin, turpis ac vehicula suscipit, tellus sapien commodo est, id faucibus enim mauris vitae dui. Curabitur nec ullamcorper sem. Donec posuere tristique mi et commodo. Duis nec eros at nunc luctus facilisis eleifend vulputate eros. Vivamus gravida neque a diam iaculis iaculis. Donec arcu felis, dignissim quis libero et, maximus commodo magna. Duis vehicula pellentesque sapien vel aliquam. Integer ac lorem sit amet eros efficitur tempus in at purus. Ut lorem nibh, lobortis eu est quis, egestas lobortis nulla. Praesent aliquam sagittis erat, ac lacinia nisl lacinia id. Maecenas et lacinia mauris.</h1>
+      </div>
+      
+      <div class="section bg2">
+        <h1 class="revealUp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vehicula, enim vitae iaculis pulvinar, quam elit ultricies sem, sit amet euismod nulla quam sit amet velit. Mauris non urna condimentum nulla eleifend rutrum. Mauris sollicitudin, turpis ac vehicula suscipit, tellus sapien commodo est, id faucibus enim mauris vitae dui. Curabitur nec ullamcorper sem. Donec posuere tristique mi et commodo. Duis nec eros at nunc luctus facilisis eleifend vulputate eros. Vivamus gravida neque a diam iaculis iaculis. Donec arcu felis, dignissim quis libero et, maximus commodo magna. Duis vehicula pellentesque sapien vel aliquam. Integer ac lorem sit amet eros efficitur tempus in at purus. Ut lorem nibh, lobortis eu est quis, egestas lobortis nulla. Praesent aliquam sagittis erat, ac lacinia nisl lacinia id. Maecenas et lacinia mauris.  </h1>
+      </div>
+
+      <div class="section bg3 gallery">
+        <div id="galleryDiv">
+          <h1 class="heading revealUp">Grid<br>Gallery</h1>
+          <a href="">Képgaléria</a> 
+        </div>
+        <div class="container">
+          <div class="child-container">
+              <img src="https://picsum.photos/100" alt="pic 1">
+          </div>
+          <div class="child-container">
+              <img src="https://picsum.photos/200" alt="pic 2">
+          </div>
+          <div class="child-container">
+              <img src="https://picsum.photos/300" alt="pic 3">
+          </div>
+          <div class="child-container">
+              <img src="https://picsum.photos/400" alt="pic 4">
+          </div>
+          <div class="child-container">
+              <img src="https://picsum.photos/500" alt="pic 5">
+          </div>
+          <div class="child-container">
+              <img src="https://picsum.photos/600" alt="pic 6">
+          </div>
+          <div class="child-container">
+              <img src="https://picsum.photos/150" alt="pic 7">
+          </div>
+          <div class="child-container">
+              <img src="https://picsum.photos/250" alt="pic 8">
+          </div>
+          <div class="child-container">
+              <img src="https://picsum.photos/350" alt="pic 9">
+          </div>
+          <div class="child-container">
+              <img src="https://picsum.photos/450" alt="pic 10">
+          </div>
+          <div class="child-container">
+              <img src="https://picsum.photos/550" alt="pic 11">
+          </div>
+          <div class="child-container">
+              <img src="https://picsum.photos/650" alt="pic 12">
+          </div>
+          <div class="child-container">
+              <img src="https://picsum.photos/110" alt="pic 13">
+          </div>
+          <div class="child-container">
+              <img src="https://picsum.photos/210" alt="pic 14">
+          </div>
+          <div class="child-container">
+              <img src="https://picsum.photos/310" alt="pic 15">
+          </div>
+          <div class="child-container">
+              <img src="https://picsum.photos/410" alt="pic 16">
+          </div>
+          <div class="child-container">
+              <img src="https://picsum.photos/510" alt="pic 17">
+          </div>
+          <div class="child-container">
+              <img src="https://picsum.photos/610" alt="pic 18">
+          </div>
+          <div class="child-container">
+              <img src="https://picsum.photos/125" alt="pic 19">
+          </div>
+          <div class="child-container">
+              <img src="https://picsum.photos/225" alt="pic 20">
+          </div>
+          <div class="child-container">
+              <img src="https://picsum.photos/325" alt="pic 21">
+          </div>
+          <div class="child-container">
+              <img src="https://picsum.photos/425" alt="pic 22">
+          </div>
+          <div class="child-container">
+              <img src="https://picsum.photos/525" alt="pic 23">
+          </div>
+          <div class="child-container">
+              <img src="https://picsum.photos/625" alt="pic 24">
           </div>
         </div>
-      </div> 
-    -->
+        
+      </div>
+      
+      <div class="spacer"></div>
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
       <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
-      <script src="index.js"></script>
+      <script src="TitleAnimation.js"></script>
+      <script src="CardAnimations.js"></script>
+
     </body>
 </html>
