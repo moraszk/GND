@@ -201,3 +201,25 @@ h1 {
     }
   }
 }
+
+.bg2 h1 {
+  width: 25%;
+}
+
+.bg2 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sponsorContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 60%;
+  justify-content: space-around;
+}
+
+.childSponsorContainer img {
+  width: 300px;
+  height: 300px;
+  padding: 50px;
+}
