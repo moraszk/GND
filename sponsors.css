@@ -1,0 +1,12 @@
+.sponsorContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 60%;
+    justify-content: space-around;
+}
+  
+.childSponsorContainer img {
+    width: 300px;
+    height: 300px;
+    padding: 50px;
+}
