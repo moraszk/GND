@@ -26,7 +26,7 @@
     align-items: center;
 }
   
-#galleryDiv a {
+#galleryDiv button {
     border-radius: 5px;
     background-color: rgb(48, 48, 48);
     padding: 10px;
@@ -34,6 +34,7 @@
     text-align: center;
     color: white;
     text-decoration: none;
+    border: none;
 }
   
 @keyframes move {
@@ -119,4 +120,8 @@
         transform: rotate(45deg) translate(150px, 20px);
       }
     }
+}
+
+#gallerySection {
+  transition: 2s;
 }

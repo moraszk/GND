@@ -6,4 +6,15 @@ body {
     height: 100vh;
     overflow-y: scroll;
     overflow-x: hidden;
+    animation: opacityUp 1s linear;
+    transition: 2s;
+}
+
+@keyframes opacityUp {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
