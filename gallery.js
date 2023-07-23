@@ -29,9 +29,6 @@ const handleOnMove = e => {
     }, { duration: 1200, fill: "forwards" });
   }
 }
-
-/* -- Had to add extra lines for touch events -- */
-
 window.onmousedown = e => handleOnDown(e);
 
 window.ontouchstart = e => handleOnDown(e.touches[0]);
@@ -55,3 +52,92 @@ function onBackClicked() {
         window.location = "./index.html";
     }, 1000);
 }
+
+let imageListContainer = document.getElementById('image-track');
+let images = [
+    "https://images.unsplash.com/photo-1524781289445-ddf8f5695861?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+    "https://images.unsplash.com/photo-1610194352361-4c81a6a8967e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80",
+    "https://images.unsplash.com/photo-1618202133208-2907bebba9e1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+    "https://images.unsplash.com/photo-1495805442109-bf1cf975750b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+    "https://images.unsplash.com/photo-1548021682-1720ed403a5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80", 
+    "https://images.unsplash.com/photo-1496753480864-3e588e0269b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2134&q=80",
+    "https://images.unsplash.com/photo-1613346945084-35cccc812dd5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1759&q=80",
+    "https://images.unsplash.com/photo-1516681100942-77d8e7f9dd97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+];
+
+let currentImageIndex = 0;
+
+images.forEach((imageElement) => {
+  var imageDiv = document.createElement('div');
+  var image = document.createElement('img');
+  var detailsLink = document.createElement('button');
+  detailsLink.classList.add('detailsButton');
+  image.dataset.index = ++currentImageIndex;
+  detailsLink.addEventListener('click', () => {
+    openImageSlideShow(image);
+  });
+  image.classList.add('image');
+  image.setAttribute('draggable', 'false');
+  image.src = imageElement;
+  imageDiv.appendChild(image);
+  imageDiv.appendChild(detailsLink);
+  imageListContainer.appendChild(imageDiv);
+});
+
+let currentDelay = 0;
+let animationLength = "16s";
+let prevIndex = images.length - 1;
+currentImageIndex = 0;
+let popUpOpened = false;
+
+let slideShowSection = document.getElementsByClassName('slideshow')[0];
+let currentProgressDiv = document.getElementsByClassName('progress')[0];
+let rightArrow = document.getElementsByClassName('arrow-next')[0];
+let leftArrow = document.getElementsByClassName('arrow-prev')[0];
+let selectedImage = document.getElementById('selectedImage');
+
+body.addEventListener('click', (event) => {
+  if (
+    popUpOpened &&
+    event.target.id !== 'slide' 
+    && (event.target.classList[0] == 'image' || event.target.classList.length == 0)
+  ) {
+    popUpOpened = false;
+    slideShowSection.style = "display: none";
+  }
+});
+
+currentImageIndex = 0;
+
+rightArrow.onclick = switchToNextPicture;
+leftArrow.onclick = switchToPrevPicture;
+
+function openImageSlideShow(image) {
+  popUpOpened = true;
+  slideShowSection.style = "display: block";
+  selectedImage.src = image.src;
+  currentProgressDiv.textContent = (image.dataset.index) + " of " + images.length;
+}
+
+function switchToNextPicture() {
+  if (currentImageIndex == images.length - 1) {
+    currentImageIndex = 0;
+  } else {
+    currentImageIndex++;
+  }
+  selectedImage.src = images[currentImageIndex];
+  currentProgressDiv.textContent = (currentImageIndex + 1) + " of " + images.length;
+}
+
+function switchToPrevPicture() {
+  if (currentImageIndex == 0) {
+    currentImageIndex = images.length - 1;
+  } else {
+    currentImageIndex--;
+  }
+  selectedImage.src = images[currentImageIndex];
+  currentProgressDiv.textContent = (currentImageIndex + 1) + " of " + images.length;
+}
+
+
+
