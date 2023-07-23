@@ -29,30 +29,17 @@ const handleOnMove = e => {
     }, { duration: 1200, fill: "forwards" });
   }
 }
+
 window.onmousedown = e => handleOnDown(e);
-
 window.ontouchstart = e => handleOnDown(e.touches[0]);
-
 window.onmouseup = e => handleOnUp(e);
-
 window.ontouchend = e => handleOnUp(e.touches[0]);
-
 window.onmousemove = e => handleOnMove(e);
-
 window.ontouchmove = e => handleOnMove(e.touches[0]);
 
 let backToHomeButton = document.getElementById("backToHomeButton");
 let body = document.getElementById("body");
-
 backToHomeButton.onclick = onBackClicked;
-
-function onBackClicked() {
-    body.style.transform = "scale(10)";
-    setTimeout(() => {
-        window.location = "./index.html";
-    }, 1000);
-}
-
 let imageListContainer = document.getElementById('image-track');
 let images = [
     "https://images.unsplash.com/photo-1524781289445-ddf8f5695861?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
@@ -64,7 +51,6 @@ let images = [
     "https://images.unsplash.com/photo-1613346945084-35cccc812dd5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1759&q=80",
     "https://images.unsplash.com/photo-1516681100942-77d8e7f9dd97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
 ];
-
 let currentImageIndex = 0;
 
 images.forEach((imageElement) => {
@@ -73,9 +59,11 @@ images.forEach((imageElement) => {
   var detailsLink = document.createElement('button');
   detailsLink.classList.add('detailsButton');
   image.dataset.index = ++currentImageIndex;
+
   detailsLink.addEventListener('click', () => {
     openImageSlideShow(image);
   });
+
   image.classList.add('image');
   image.setAttribute('draggable', 'false');
   image.src = imageElement;
@@ -87,14 +75,13 @@ images.forEach((imageElement) => {
 let currentDelay = 0;
 let animationLength = "16s";
 let prevIndex = images.length - 1;
-currentImageIndex = 0;
 let popUpOpened = false;
-
 let slideShowSection = document.getElementsByClassName('slideshow')[0];
 let currentProgressDiv = document.getElementsByClassName('progress')[0];
 let rightArrow = document.getElementsByClassName('arrow-next')[0];
 let leftArrow = document.getElementsByClassName('arrow-prev')[0];
 let selectedImage = document.getElementById('selectedImage');
+currentImageIndex = 0;
 
 body.addEventListener('click', (event) => {
   if (
@@ -108,7 +95,6 @@ body.addEventListener('click', (event) => {
 });
 
 currentImageIndex = 0;
-
 rightArrow.onclick = switchToNextPicture;
 leftArrow.onclick = switchToPrevPicture;
 
@@ -139,5 +125,9 @@ function switchToPrevPicture() {
   currentProgressDiv.textContent = (currentImageIndex + 1) + " of " + images.length;
 }
 
-
-
+function onBackClicked() {
+  body.style.transform = "scale(10)";
+  setTimeout(() => {
+      window.location = "./index.html";
+  }, 1000);
+}
