@@ -90,7 +90,12 @@ body.addEventListener('click', (event) => {
     && (event.target.classList[0] == 'image' || event.target.classList.length == 0)
   ) {
     popUpOpened = false;
-    slideShowSection.style = "display: none";
+    slideShowSection.style.transition = "1s linear";
+    slideShowSection.style.opacity = '0';
+    slideShowSection.style.transform = "scale(0)";
+    setTimeout(() => {
+      slideShowSection.style = "display: none";
+    }, 2000);
   }
 });
 
@@ -102,6 +107,7 @@ function openImageSlideShow(image) {
   popUpOpened = true;
   slideShowSection.style = "display: block";
   selectedImage.src = image.src;
+  currentImageIndex = image.dataset.index - 1;
   currentProgressDiv.textContent = (image.dataset.index) + " of " + images.length;
 }
 
