@@ -84,24 +84,37 @@ let selectedImage = document.getElementById('selectedImage');
 currentImageIndex = 0;
 
 body.addEventListener('click', (event) => {
-  if (
-    popUpOpened &&
-    event.target.id !== 'slide' 
-    && (event.target.classList[0] == 'image' || event.target.classList.length == 0)
-  ) {
-    popUpOpened = false;
-    slideShowSection.style.transition = "1s linear";
-    slideShowSection.style.opacity = '0';
-    slideShowSection.style.transform = "scale(0)";
-    setTimeout(() => {
-      slideShowSection.style = "display: none";
-    }, 2000);
-  }
+  checkIfSlideShowNeededToClose(event);
 });
 
 currentImageIndex = 0;
 rightArrow.onclick = switchToNextPicture;
 leftArrow.onclick = switchToPrevPicture;
+
+function checkIfSlideShowNeededToClose(event) {
+  if (clickedOutsideOfSlideshow(event)) {
+    popUpOpened = false;
+    closeSlideShow();
+  }
+}
+
+function clickedOutsideOfSlideshow(event) {
+  return popUpOpened &&
+    event.target.id !== 'slide' &&
+    (
+        event.target.classList[0] == 'image' ||
+        event.target.classList.length == 0
+    );
+}
+
+function closeSlideShow() {
+  slideShowSection.style.transition = "1s linear";
+  slideShowSection.style.opacity = '0';
+  slideShowSection.style.transform = "scale(0)";
+  setTimeout(() => {
+    slideShowSection.style = "display: none";
+  }, 2000);
+}
 
 function openImageSlideShow(image) {
   popUpOpened = true;
