@@ -20,7 +20,7 @@
     height: 100vh;
 }
 
-.bg3 {
+.bg4 {
     height: 100vh;
 }
 
@@ -29,19 +29,22 @@
 }
 
 .bg1 div {
-    width: 50%;
+    width: 75%;
 }
 
 .bg2 {
-    background-color: #333;
-    color: white  ;
+    background-color: rgb(31, 30, 46);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.bg2 h1 {
+.bg3 h1 {
     width: 25%;
 }
   
-.bg2 {
+.bg3 {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -49,6 +52,10 @@
  
 .bg3 {
     background-color: #ccc;
+}
+
+.bg4 h1 {
+    color: white;
 }
 
 h1 {
@@ -66,3 +73,6 @@ h1 {
     height: 50vh;
     background-color: #000;
 } 
+
+
+

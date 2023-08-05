@@ -1,5 +1,6 @@
 .sponsorContainer {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     flex-wrap: wrap;
     width: 60%;
     justify-content: space-around;
@@ -11,3 +12,5 @@
     padding: 50px;
     border-radius: 70px;
 }
+
+

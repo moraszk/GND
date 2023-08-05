@@ -1,0 +1,31 @@
+@media screen and (max-width: 1370px) {
+    .sponsorContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 930px), (pointer: coarse)  {
+    .bg3 {
+        flex-direction: column;
+    }
+
+    .bg3 > .revealUp {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1370px) {
+    .sponsorContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 930px), (pointer: coarse)  {
+    .bg2 {
+        flex-direction: column;
+    }
+
+    .bg2 > .revealUp {
+        width: 100%;
+    }
+}
