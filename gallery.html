@@ -7,10 +7,10 @@
     <body id="body">
         <div>
             <div id="albumNavBar">
-                <button class="albumButton">Bevezetés a mikrovezérlők világába kurzus</button>
-                <button class="albumButton">Üzemlátogatás a Csiha Zrt.-nél</button>
-                <button class="albumButton">SSTV vétel – a rádiós kezdetek</button>
-                <button class="albumButton">Meteorológiai vevőállomás</button>
+                <div id="mikrokurzus" class="albumButton" onclick="switchAlbum('mikrokurzus')">Bevezetés a mikrovezérlők világába kurzus</div>
+                <div id="csiha" class="albumButton" onclick="switchAlbum('csiha')">Üzemlátogatás a Csiha Zrt.-nél</div>
+                <div id="sstv" class="albumButton" onclick="switchAlbum('sstv')">SSTV vétel – a rádiós kezdetek</div>
+                <div id="meteor" class="albumButton"  onclick="switchAlbum('meteor')">Meteorológiai vevőállomás</div>
             </div>
             <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
             

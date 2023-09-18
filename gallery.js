@@ -1,6 +1,12 @@
 const track = document.getElementById("image-track");
+track.dataset.prevPercentage = 0;
+track.dataset.mouseDownAt = '0';
+track.dataset.percentage = 0;
 
-const handleOnDown = e => track.dataset.mouseDownAt = e.clientX;
+const handleOnDown = e => {
+  track.dataset.mouseDownAt = e.clientX;
+  track.dataset.prevPercentage = track.dataset.percentage;
+}
 
 const handleOnUp = () => {
   track.dataset.mouseDownAt = "0";  
@@ -52,25 +58,34 @@ let images = [
     "https://images.unsplash.com/photo-1516681100942-77d8e7f9dd97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
 ];
 let currentImageIndex = 0;
+let mikroKurzusDiv = document.getElementById('mikrokurzus');
+let csihaDiv = document.getElementById('csiha');
+let sstvDiv = document.getElementById('sstv');
+let meteorDiv = document.getElementById('meteor');
 
-images.forEach((imageElement) => {
-  var imageDiv = document.createElement('div');
-  var image = document.createElement('img');
-  var detailsLink = document.createElement('button');
-  detailsLink.classList.add('detailsButton');
-  image.dataset.index = ++currentImageIndex;
-
-  detailsLink.addEventListener('click', () => {
-    openImageSlideShow(image);
+function renderImages() {
+  currentImageIndex = 0;
+  images.forEach((imageElement) => {
+    var imageDiv = document.createElement('div');
+    var image = document.createElement('img');
+    var detailsLink = document.createElement('button');
+    imageDiv.id = ++currentImageIndex;
+    detailsLink.classList.add('detailsButton');
+    image.dataset.index = currentImageIndex;
+  
+    detailsLink.addEventListener('click', () => {
+      openImageSlideShow(image);
+    });
+  
+    image.classList.add('image');
+    image.setAttribute('draggable', 'false');
+    image.src = imageElement;
+    imageDiv.appendChild(image);
+    imageDiv.appendChild(detailsLink);
+    imageListContainer.appendChild(imageDiv);
   });
+}
 
-  image.classList.add('image');
-  image.setAttribute('draggable', 'false');
-  image.src = imageElement;
-  imageDiv.appendChild(image);
-  imageDiv.appendChild(detailsLink);
-  imageListContainer.appendChild(imageDiv);
-});
 
 let currentDelay = 0;
 let animationLength = "16s";
@@ -149,4 +164,42 @@ function onBackClicked() {
   setTimeout(() => {
       window.location = "./index.html";
   }, 1000);
+}
+
+function deletePrevPictures() {
+  currentImageIndex = 1;
+  images.forEach(() => {
+    if (document.getElementById(currentImageIndex)) {
+      document.getElementById(currentImageIndex++).remove();
+    }
+  });
+}
+
+function switchAlbum(album) {
+  switch(album) {
+    case "mikrokurzus":
+      deletePrevPictures();
+      images = [
+        "https://gallery.mora.u-szeged.hu/watermark/jpeg/2022/0419bevezetesamikrovezerlokvilagabatavasz/kurzus_2022_04_12_19_00_42_0008_2.jpg",
+        "https://gallery.mora.u-szeged.hu/watermark/jpeg/2022/0419bevezetesamikrovezerlokvilagabatavasz/kurzus_2022_04_12_19_00_42_0008_2.jpg"
+      ];
+      renderImages();
+      break;
+    case 'csiha':
+      deletePrevPictures();
+      images = [
+        "https://gallery.mora.u-szeged.hu/watermark/jpeg/2022/0520_csiha/csiha_2022_05_20_08_51_51_0001_2.jpg",
+        "https://gallery.mora.u-szeged.hu/watermark/jpeg/2022/0520_csiha/csiha_2022_05_20_09_40_05_0002_2.jpg"
+      ];
+      renderImages();
+      break;
+    case 'sstv':
+      deletePrevPictures();
+      images = [
+        "https://gallery.mora.u-szeged.hu/watermark/jpeg/2022/0800iss/IMG_0090.jpeg",
+        "https://gallery.mora.u-szeged.hu/watermark/jpeg/2022/0800iss/19700101_191333_638507111.png"
+      ];
+      renderImages();
+      break;
+  }
 }

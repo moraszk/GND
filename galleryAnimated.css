@@ -36,7 +36,7 @@ body {
     object-position: center center;
 }
 
-button:not(.albumButton){
+button {
     padding: 20px;
     background-color: aliceblue;
     border-radius: 20px 20px;
@@ -48,6 +48,22 @@ button:not(.albumButton){
     color: black;
     font-size: 30px;
     border: none;
+}
+
+.albumButton {
+    color: black;
+    margin-top: 20px;
+    padding: 15px;
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: #e6e6e6;
+}
+
+#albumNavBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap ;
 }
 
 #popUpSection {
