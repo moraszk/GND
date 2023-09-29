@@ -2,13 +2,26 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    flex-direction: column;
+    min-width: 700px;
+    max-height: 600px
 }
   
 .childParticipantContainer img {
-    width: 300px;
-    height: 300px;
-    padding: 50px;
-    border-radius: 70px;
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+}
+
+.childParticipantContainer {
+    padding: 5px;
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    background-color: #ccc;
+    color: black;
+    margin: 5px;
+    border-radius: 10px;
 }
 
 .bg1 div .participantContainer {
